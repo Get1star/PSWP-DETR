@@ -1,0 +1,21 @@
+metric: COCO
+num_classes: 10
+
+TrainDataset:
+  name: COCODataSet
+  image_dir: VisDrone2019-DET-train
+  anno_path: train.json
+  dataset_dir: /root/autodl-tmp/visdrone
+  data_fields: ['image', 'gt_bbox', 'gt_class', 'is_crowd']
+
+EvalDataset:
+  name: COCODataSet
+  image_dir: VisDrone2019-DET-val
+  anno_path: val.json
+  dataset_dir: /root/autodl-tmp/visdrone
+  allow_empty: true
+
+TestDataset:
+  name: ImageFolder
+  anno_path: /root/autodl-tmp/visdrone/val.json # also support txt (like VOC's label_list.txt)
+  dataset_dir: /root/autodl-tmp/visdrone # if set, anno_path will be 'dataset_dir/anno_path'
